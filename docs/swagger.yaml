@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: API Port de Plaisance Russell
+  description: Documentation de l’API pour la gestion des catways, utilisateurs et réservations
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /catways:
+    get:
+      summary: Obtenir la liste des catways
+      responses:
+        '200':
+          description: Liste des catways
+
+  /reservations:
+    get:
+      summary: Obtenir toutes les réservations
+      responses:
+        '200':
+          description: Liste des réservations
+
+  /users:
+    get:
+      summary: Obtenir tous les utilisateurs
+      responses:
+        '200':
+          description: Liste des utilisateurs

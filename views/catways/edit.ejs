@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Catway</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light min-vh-100 d-flex flex-column">
+    
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Modifier le Catway <%= catway.catwayNumber %></h1>
+    </header>
+    
+    <main class="container my-5">
+        <form action="/catways/<%= catway.catwayNumber %>?_method=PUT" method="POST" class="mx-auto border rounded p-4 shadow bg-white" style="max-width: 600px;">
+            <div class="mb-3">
+                <label for="catwayType" class="form-label">Type de Catway</label>
+                <select name="catwayType" id="catwayType" class="form-select" required>
+                    <option value="<%= catway.catwayType %>" selected><%= catway.catwayType %></option>
+                    <% if (catway.catwayType === 'short') { %>
+                        <option value="long">long</option>
+                    <% } else if (catway.catwayType === 'long') { %>
+                        <option value="short">short</option>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="catwayState" class="form-label">État du Catway</label>
+                <textarea name="catwayState" id="catwayState" class="form-control" rows="3" required><%= catway.catwayState %></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Enregistrer</button>
+            <a href="/catways" class="btn btn-secondary ms-2">Annuler</a>
+        </form>
+    </main>
+
+    <footer class="bg-light text-center py-3 mt-auto">
+        &copy; 2025 Port de Plaisance Russell
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
